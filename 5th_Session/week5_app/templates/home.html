@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}" />
+    </head>
+    <body>
+    {% for youtube in channels.all %}
+    <br />
+    <div class="container" style="width: 100%; height: 30%;  background-color: #BBD1E8;">
+        <div class="col_div" style="width: 100%; height: 100%; background-color: #BBD1E8;">
+            <div class="row_div" style="width: 100%; height: 35%; margin-left: 1%; margin-top: 1%; background-color: #BBD1E8; margin-left: 0;">
+                <div class="font_box" style=" width: 25%;">{{youtube.ch_name}}</div>
+                <div class="font_box" style=" width: 15%;">Youtuber : {{youtube.cre_name}}</div>
+                <div class="font_box" style=" width: 13%;">Subscriber : {{youtube.sub_num}}</div>
+                <div class="font_box" style=" width: 13%;">
+                    {% if youtube.prefer == 5 %}
+                    ★★★★★
+                    {% elif youtube.prefer == 4 %}
+                    ★★★★☆
+                    {% elif youtube.prefer == 3 %}
+                    ★★★☆☆
+                    {% elif youtube.prefer == 2 %}
+                    ★★☆☆☆
+                    {% elif youtube.prefer == 1 %}
+                    ★☆☆☆☆
+                    {% else %}
+                    ☆☆☆☆☆
+                    {% endif %}
+                </div>
+                <div class="font_box" style=" width: 10%; padding: 3%; background-color: rgb(164,218,215);">
+                    {% if youtube.live == True %}
+                    <img src="{% static "img/onair_t.png" %}" width="100%">
+                    {% else %}
+                    <img src="{% static "img/onair_f.png" %}" width="100%">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row_div" style="align-items: center; justify-content: space-around; height: 100%; padding-left: 1%; background-color: #bbd3bbE7;;">
+                <iframe src="{{youtube.link_1}}" ></iframe>
+                <iframe src="{{youtube.link_2}}" ></iframe>
+                <iframe src="{{youtube.link_3}}" ></iframe>
+            </div>
+        </div>
+    </div>
+
+{% endfor %}
+    </body>
+</html>
+
+
+

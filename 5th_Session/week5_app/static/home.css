@@ -1,0 +1,25 @@
+html, body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #BBD1E8;
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+.row_div {
+    display: flex;
+    flex-direction: row;
+}
+
+.col_div {
+    display: flex;
+    flex-direction: column;
+}
+
+.font_box {
+    font-size: 30px;
+    font-weight: bold;
+    padding: 3%; 
+    background-color: rgb(164,218,215);
+    text-align: center;
+}
