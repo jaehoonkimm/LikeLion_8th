@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Update Page</title>   
+{% endblock title %}
+
+{% block body %}
+    <h2>Update page</h2>
+
+    <form action="{% url 'update' update_key.id %}" method="POST">
+        {% csrf_token %}
+        <p>Title : </p>
+        <input type="text" name="subject">
+        <p>Content : </p>
+        <input type="text" name="content">
+        <p>Date : </p>
+        <input type="datetime" name="create_date">
+        <input type="submit" value="수정">
+    </form>
+{% endblock body %}

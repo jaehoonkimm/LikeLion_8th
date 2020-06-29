@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Detail Page</title>   
+{% endblock title %}
+
+{% block body %}
+    <h> detail page </h>
+    {{detail_key.subject}}
+    {{detail_key.content}}
+    {{detail_key.create_date}}
+    <a href="{% url 'update' detail_key.id %}">수정하기</a> <br />
+    <a href="{% url 'delete' detail_key.id %}">삭제하기</a> <br />
+{% endblock body %}

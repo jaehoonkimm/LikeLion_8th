@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Main Page</title>   
+{% endblock title %}
+
+{% block body %}
+    <h2>Home page</h2> <br />
+
+    {% for i in main_key.all %}    
+    <a href="{% url 'detail' i.id %}">{{i.subject}}</a> <br/>
+    {% endfor %}
+    
+    <a href="{% url 'create' %}" method="POST">Create</a> 
+{% endblock body %}

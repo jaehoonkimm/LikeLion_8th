@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Create Page</title>   
+{% endblock title %}
+
+{% block body %}
+<h2>Create page</h2>
+
+<form action="#" method="POST">
+    {% csrf_token %}
+    <p>Title : </p>
+    <input type="text" name="subject">
+    <p>Content : </p>
+    <input type="text" name="content">
+    <p>Date : </p>
+    <input type="datetime" name="create_date">
+    <input type="submit" value="추가">
+</form>
+
+{% endblock body %}
