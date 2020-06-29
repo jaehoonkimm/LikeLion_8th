@@ -12,8 +12,13 @@
         {% csrf_token %}
         <p>Title : </p>
         <input type="text" name="subject">
+
+        <p>Image : </p>
+        <input type="file" name="image">
+
         <p>Content : </p>
         <input type="text" name="content">
+
         <p>Date : </p>
         <input type="datetime" name="create_date">
         <input type="submit" value="수정">

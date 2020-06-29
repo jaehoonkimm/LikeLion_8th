@@ -19,6 +19,9 @@ from django.urls import path
 # from summer_app import views
 import summer_app.views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', summer_app.views.main, name="main"),
@@ -26,4 +29,12 @@ urlpatterns = [
     path('create/', summer_app.views.create, name="create"),
     path('update/<int:update_id>', summer_app.views.update, name="update"),
     path('delete/<int:delete_id>', summer_app.views.delete, name="delete"),
+    # path('photoForm_function/', summer_app.views.photoForm_function, name="photoForm_function")
 ]
+urlpatterns += static(settings.MEDIA_URL,
+                document_root=settings.MEDIA_ROOT)
+
+
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL,
+#                     document_root=settings.MEDIA_ROOT)

@@ -6,11 +6,17 @@
 {% endblock title %}
 
 {% block body %}
-    <h2>Home page</h2> <br />
 
-    {% for i in main_key.all %}    
-    <a href="{% url 'detail' i.id %}">{{i.subject}}</a> <br/>
-    {% endfor %}
+    <div style="margin-bottom: 1%; font-size: 150%;" ><a href="{% url 'create' %}" method="POST">Create</a> </div>
     
-    <a href="{% url 'create' %}" method="POST">Create</a> 
+
+    <div class="main_div">
+        {% for i in main_key.all %}
+        <a style="font-size: 150%;" href="{% url 'detail' i.id %}">Title : {{i.subject}}</a> <br/>
+        <img style="width: auto; height: auto; max-width: 50%; max-height: 50%;" 
+        class="image" src="{{i.image.url}}"/>
+        <p></p>
+        {% endfor %}
+    </div>
+    
 {% endblock body %}
