@@ -8,19 +8,21 @@
 {% block body %}
     <h2>Update page</h2>
 
+    <a style="font-size: 150%;" href="{% url 'main' %}">뒤로가기</a> <br /><br />
+
     <form action="{% url 'update' update_key.id %}" method="POST">
         {% csrf_token %}
-        <p>Title : </p>
-        <input type="text" name="subject">
+        <p style="display: inline;">Title : </p>
+        <input type="text" name="subject"> <br /><br />
 
-        <p>Image : </p>
-        <input type="file" name="image">
+        <p style="display: inline;">Image : </p>
+        <input type="file" name="image"> <br /><br />
 
-        <p>Content : </p>
-        <input type="text" name="content">
+        <p style="display: inline;">Content : </p>
+        <input type="text" name="content"> <br /><br />
 
-        <p>Date : </p>
-        <input type="datetime" name="create_date">
+        <p style="display: inline;">Date : </p>
+        <input type="datetime" name="create_date"> <br /><br />
         <input type="submit" value="수정">
     </form>
 {% endblock body %}

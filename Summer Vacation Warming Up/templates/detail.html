@@ -6,11 +6,20 @@
 {% endblock title %}
 
 {% block body %}
-    <h> detail page </h>
-    <img class="image" src="{{detail_key.image.url}}"/>
-    {{detail_key.subject}}
-    {{detail_key.content}}
-    {{detail_key.create_date}}
-    <a href="{% url 'update' detail_key.id %}">수정하기</a> <br />
-    <a href="{% url 'delete' detail_key.id %}">삭제하기</a> <br />
+<br />
+    <a style="font-size: 150%;" href="{% url 'main' %}">뒤로가기</a> <br />
+<br />
+    <img style="width: auto; height: auto; max-width: 70%; max-height: 70%;" 
+    class="image" src="{{detail_key.image.url}}"/> <br/>
+    <div style="font-size: 150%;">
+        <br />
+        {{detail_key.subject}}
+        {{detail_key.content}}
+        <br /><br />
+        {{detail_key.create_date}}
+    </div>
+
+    <br/>
+    <a style="font-size: 150%;" href="{% url 'update' detail_key.id %}">수정하기</a> <br /><br />
+    <a style="font-size: 150%;" href="{% url 'delete' detail_key.id %}">삭제하기</a> <br />
 {% endblock body %}

@@ -6,17 +6,21 @@
 {% endblock title %}
 
 {% block body %}
-
-    <div style="margin-bottom: 1%; font-size: 150%;" ><a href="{% url 'create' %}" method="POST">Create</a> </div>
+    <br />
+    <div style="margin-bottom: 1%; font-size: 300%;" ><a href="{% url 'create' %}" method="POST">Create</a> </div><br />
     
 
     <div class="main_div">
         {% for i in main_key.all %}
         <a style="font-size: 150%;" href="{% url 'detail' i.id %}">Title : {{i.subject}}</a> <br/>
-        <img style="width: auto; height: auto; max-width: 50%; max-height: 50%;" 
-        class="image" src="{{i.image.url}}"/>
-        <p></p>
-        {% endfor %}
+        <div class="information-tip">
+            <img style="width: auto; height: auto; max-width: 50%; max-height: 50%;" 
+            src="{{i.image.url}}"/>
+            <p>
+                {{i.content}} <br />
+                {{i.create_date}}
+            </p><br /><br /><br />
+        </div>{% endfor %}
     </div>
     
 {% endblock body %}

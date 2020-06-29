@@ -6,22 +6,26 @@
 {% endblock title %}
 
 {% block body %}
-<h2>Create page</h2>
+<h1>Create Photo Posting</h1><br />
 
-<form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+<a style="font-size: 150%;" href="{% url 'main' %}">뒤로가기</a> <br /><br />
+
+<form style="font-size: 150%;"
+action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    <p>Title : </p>
-    <input type="text" name="subject">
+    <p style="display: inline;">Title : </p>
+    <input type="text" name="subject"> <br /><br />
 
-    <p>Image : </p>
-    <input type="file" name="image">
+    <p style="display: inline;">Image : </p>
+    <input type="file" name="image"> <br /><br />
     <!-- {{form.image}}
     <iframe src="{{i.image}}" ></iframe> -->
     
-    <p>Content : </p>
-    <input type="text" name="content">
-    <p>Date : </p>
-    <input type="datetime" name="create_date">
+    <p style="display: inline;">Content : </p>
+    <input type="text" name="content"> <br /><br />
+
+    <p style="display: inline;">Date : </p>
+    <input type="datetime" name="create_date"> <br /><br />
     <input type="submit" value="추가">
 </form>
 
