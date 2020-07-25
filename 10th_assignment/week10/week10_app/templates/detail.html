@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Detail</title>
+{% endblock title %}
+
+{% block contents %}
+    <div style="
+    position: absolute;
+    right: 0;
+    top: 2%;
+    width: 30%;;
+    text-align: center;
+    font-size: 200%
+    ">
+    {{post.author}}님 Hi!</div>
+    <br />
+    <a>
+        <h1>포스팅 제목 : {{post.title}}</h1>
+        <h2>본문 : {{post.contents}}</h2>
+        <p>작성자 : {{post.author}}</p>
+        <p>작성 시간 : {{post.time}}</p>
+    </a>
+{% endblock contents %}

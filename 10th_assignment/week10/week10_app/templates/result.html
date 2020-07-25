@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Detail</title>
+{% endblock title %}
+
+{% block contents %}
+<div style="
+position: absolute;
+right: 0;
+top: 2%;
+width: 30%;;
+text-align: center;
+font-size: 200%
+">
+검색 결과</div>
+    <p>"{{query}}"에 해당하는 검색...</p>
+    <br />
+    {% if BlogPosts %}
+        {% for post in BlogPosts %}
+            <p>포스팅 제목 : {{post.title}}</p>
+            <p>본문 : {{post.contents}}</p>
+            <p>작성자 : {{post.author}}</p>
+        {% endfor %}
+    {% else %}
+        <p>결과가 존재하지 않습니다.</p>
+    {% endif %}    
+{% endblock contents %}
+
+
+

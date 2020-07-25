@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Detail</title>
+{% endblock title %}
+
+{% block contents %}
+<div style="
+position: absolute;
+right: 0;
+top: 2%;
+width: 30%;;
+text-align: center;
+font-size: 200%
+">
+새로운 글</div>
+    <form method="POST">
+        {% csrf_token %}
+        <h1> 포스팅 작성하기 </h1>
+        {{form.as_p}}
+        <input type="submit" value="작성하기">
+    </form>
+{% endblock contents %}

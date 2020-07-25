@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    <title>Index</title>
+{% endblock title %}
+
+{% block contents %}
+
+    <div style="
+    position: absolute;
+    right: 0;
+    top: 2%;
+    width: 30%;;
+    text-align: center;
+    font-size: 200%
+    ">
+    메인 페이지</div>
+    {% for post in post %}
+    <a href="{% url 'detail' post.id %}">
+        <h1>포스팅 제목 : {{post.title}}</h1>
+        <p>작성자 : {{post.author}}</p>
+        <br />
+    </a>
+    {% endfor %}
+    <a style="
+    position: absolute;
+    right: 1%; bottom: 1%;
+    font-size: 180%; font-weight: bolder;
+    color: white;
+    background-color:yellowgreen;"
+    href="{% url 'create' %}">새로운 글 작성하기</a>
+{% endblock contents %}
