@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.db.models import Q
 
 from . models import Post
+from . admin import PostAdmin
 
 class index(ListView):
     template_name = 'index.html'
@@ -37,17 +38,22 @@ def result(request):
     BlogPosts = Post.objects.all()
     query = request.GET.get('query', '')
     search_type = request.GET.get('search_type', '')
+    Posts_len = len(BlogPosts)
     if query:
         if search_type=="all":
-            BlogPosts = BlogPosts.filter(Q(title__icontains=query)| Q(contents__icontains=query)).order_by('-time')
+            BlogPosts = BlogPosts.filter(Q(title__icontains=query)| Q(contents__icontains=query)| Q(author__icontains=query)).order_by('-time')
+            Posts_len = len(BlogPosts)
 
         elif search_type=="title":
             BlogPosts = BlogPosts.filter(Q(title__icontains=query)).order_by('-time')
+            Posts_len = len(BlogPosts)
 
         elif search_type=="contents":
             BlogPosts = BlogPosts.filter(Q(contents__icontains=query)).order_by('-time')
+            Posts_len = len(BlogPosts)
+            
+        elif search_type=="author":
+            BlogPosts = BlogPosts.filter(Q(author__icontains=query)).order_by('-time')
+            Posts_len = len(BlogPosts)
 
-        else:
-            BlogPosts = Post.objects.all()
-
-    return render(request, 'result.html', {'BlogPosts':BlogPosts, 'query':query, 'search_type':search_type})
+    return render(request, 'result.html', {'BlogPosts':BlogPosts, 'query':query, 'search_type':search_type, 'Posts_len':Posts_len})

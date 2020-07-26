@@ -15,17 +15,30 @@ text-align: center;
 font-size: 200%
 ">
 검색 결과</div>
-    <p>"{{query}}"에 해당하는 검색...</p>
+    <h3>"{{query}}"에 해당하는 "{{search_type}}" 검색...</h3>
+    <h4>검색 결과 : "{{Posts_len}}"개의 게시물</h4>
+    <p>= = = = = = = = = =</p>
     <br />
     {% if BlogPosts %}
-        {% for post in BlogPosts %}
-            <p>포스팅 제목 : {{post.title}}</p>
-            <p>본문 : {{post.contents}}</p>
-            <p>작성자 : {{post.author}}</p>
-        {% endfor %}
+            {% for post in BlogPosts %}
+                <p>포스팅 제목 : {{post.title}}</p>
+                <p>본문 : {{post.contents}}</p>
+                <p>작성자 : {{post.author}}</p>
+                <p>- - - - - - - - - -</p>
+                {% if post.id == BlogPosts.id %}
+                    <p>끝</p>
+                {% endif %}
+            {% endfor %}
     {% else %}
         <p>결과가 존재하지 않습니다.</p>
     {% endif %}    
+    <a style="
+    position: absolute;
+    right: 1%; bottom: 1%;
+    font-size: 180%; font-weight: bolder;
+    color: white;
+    background-color:yellowgreen;"
+    href="{% url 'index' %}">메인으로 돌아가기</a>
 {% endblock contents %}
 
 

@@ -6,6 +6,7 @@ from django.conf import settings
 class Post(models.Model):
     title = models.CharField(max_length=100)
     contents = models.TextField(max_length=5000)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="search_author", default = 1, on_delete = models.CASCADE)
+    author = models.CharField(max_length=50)
     time = models.DateTimeField(default=timezone.now)
+    account = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="set_author", default = 1, on_delete = models.CASCADE)
     

@@ -22,7 +22,7 @@
     position: absolute;
     left: 0;
     top: 2%;
-    width: 30%;
+    width: 25%;
     text-align: center;
     font-size: 200%
     ">개발 블로그</div>
@@ -31,7 +31,7 @@
     position: absolute;
     left: 35%;
     top: 2%;
-    width: 30%;
+    width: 25%;
     text-align: center;
     font-size: 200%
     ">
@@ -39,10 +39,10 @@
             <input style="display: inline; width:70%; padding-bottom: 1.5%; padding-top: 1.5%; text-align: center;"
             type="search" name="query" value="{{query}}" placeholder="검색어 입력!">
             <select name="search_type">
-                <option value="all">전체</option>
-                <option value="title">제목</option>
-                <option value="contents">본문</option>
-                <option value="author">저자</option>
+                <option value="all">전체(All)</option>
+                <option value="title">제목(Title)</option>
+                <option value="contents">본문(Contents)</option>
+                <option value="author">저자(Author)</option>
             </select>
         </form>
     </div>
@@ -52,7 +52,7 @@
     margin-left: 10%;
     margin-right: 12%;
     padding-left: 20%;
-    padding-top: 5%;
+    padding-top: 10%;
     padding-bottom: 1%;
     ">
         {% block contents %}
